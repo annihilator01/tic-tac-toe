@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GameManagerTest {
     private GameManager gameManager3x3;
@@ -23,6 +23,24 @@ public class GameManagerTest {
         gameManager3x3 = null;
         gameManager4x4 = null;
         gameManager5x5 = null;
+    }
+
+    @Test
+    public void testMarkSpaceIndexOutOfBoundsException() {
+        // Test #1
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            gameManager3x3.markSpace(null, 1, 3);
+        });
+
+        // Test #2 (4x4)
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            gameManager4x4.markSpace(Figure.CROSS, 100, -450);
+        });
+
+        // Test #3
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            gameManager5x5.markSpace(Figure.ZERO, -1, 3);
+        });
     }
 
     @Test
