@@ -27,7 +27,7 @@ public class GameManagerTest {
 
     @Test
     public void testMarkSpaceIndexOutOfBoundsException() {
-        // Test #1
+        // Test #1 (3x3)
         assertThrows(IndexOutOfBoundsException.class, () -> {
             gameManager3x3.markSpace(null, 1, 3);
         });
@@ -37,7 +37,7 @@ public class GameManagerTest {
             gameManager4x4.markSpace(Figure.CROSS, 100, -450);
         });
 
-        // Test #3
+        // Test #3 (5x5)
         assertThrows(IndexOutOfBoundsException.class, () -> {
             gameManager5x5.markSpace(Figure.ZERO, -1, 3);
         });
