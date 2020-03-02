@@ -1,4 +1,7 @@
-package com.tictactoe.backend;
+package com.ilian.tictactoe.backend;
+
+import com.ilian.tictactoe.backend.guiconnectors.Figure;
+import com.ilian.tictactoe.backend.guiconnectors.Row;
 
 import java.util.ArrayList;
 
@@ -6,20 +9,22 @@ public class GameManager {
     public static final int GRID_MIN_SIZE = 3;
     public static final int GRID_MAX_SIZE = 5;
 
-    private Figure[][] grid;
     private int gridSize;
+    private Figure turn;
+    private Figure[][] grid;
 
-    GameManager() {
+    public GameManager() {
         this(3);
     }
 
-    GameManager(int gridSize) {
+    public GameManager(int gridSize) {
         if (gridSize < GRID_MIN_SIZE || gridSize > GRID_MAX_SIZE) {
             gridSize = 3;
         }
 
         this.gridSize = gridSize;
-        grid = new Figure[gridSize][gridSize];
+        this.turn = Figure.CROSS;
+        this.grid = new Figure[gridSize][gridSize];
     }
 
     public boolean markSpace(Figure figure, int i, int j) {
@@ -32,12 +37,17 @@ public class GameManager {
         }
 
         grid[i][j] = figure;
+        turn = turn.getNext();
 
         return true;
     }
 
     public int getGridSize() {
         return gridSize;
+    }
+
+    public Figure getTurn() {
+        return turn;
     }
 
     public Figure getFigure(int i, int j) {
@@ -58,7 +68,7 @@ public class GameManager {
             }
 
             if (isWinnerSequence(sequence)) {
-                return new WinnerInfo(sequence.get(0), 0, i, gridSize - 1, i);
+                return new WinnerInfo(Row.HORIZONTAL, sequence.get(0), 0, i, gridSize - 1, i);
             }
 
             sequence.clear();
@@ -71,7 +81,7 @@ public class GameManager {
             }
 
             if (isWinnerSequence(sequence)) {
-                return new WinnerInfo(sequence.get(0), j, 0, j, gridSize - 1);
+                return new WinnerInfo(Row.VERTICAL, sequence.get(0), j, 0, j, gridSize - 1);
             }
 
             sequence.clear();
@@ -83,7 +93,7 @@ public class GameManager {
         }
 
         if (isWinnerSequence(sequence)) {
-            return new WinnerInfo(sequence.get(0), 0, 0, gridSize - 1, gridSize - 1);
+            return new WinnerInfo(Row.DOWNWARDS_DIAGONAL, sequence.get(0), 0, 0, gridSize - 1, gridSize - 1);
         }
 
         sequence.clear();
@@ -94,7 +104,7 @@ public class GameManager {
         }
 
         if (isWinnerSequence(sequence)) {
-            return new WinnerInfo(sequence.get(0), 0, gridSize - 1, gridSize - 1, 0);
+            return new WinnerInfo(Row.UPWARDS_DIAGONAL, sequence.get(0), 0, gridSize - 1, gridSize - 1, 0);
         }
 
         sequence.clear();

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="mainBackgroundColor">#14bdac</color>
+    <color name="zeroColor">#f2ebd3</color>
+    <color name="crossColor">#545454</color>
+    <color name="turnColor">#8A000000</color>
 </resources>

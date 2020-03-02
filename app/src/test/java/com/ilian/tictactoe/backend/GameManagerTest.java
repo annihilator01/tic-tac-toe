@@ -1,4 +1,7 @@
-package com.tictactoe.backend;
+package com.ilian.tictactoe.backend;
+
+import com.ilian.tictactoe.backend.guiconnectors.Figure;
+import com.ilian.tictactoe.backend.guiconnectors.Row;
 
 import org.junit.After;
 import org.junit.Before;
@@ -71,19 +74,19 @@ public class GameManagerTest {
         for (int i = 0; i < 3; i++) {
             gameManager3x3.markSpace(Figure.CROSS, 1, i);
         }
-        assertEquals(gameManager3x3.getWinnerInfo(), new WinnerInfo(Figure.CROSS, 0, 1, 2, 1));
+        assertEquals(gameManager3x3.getWinnerInfo(), new WinnerInfo(Row.HORIZONTAL, Figure.CROSS, 0, 1, 2, 1));
 
         // Test #2 (4x4)
         for (int i = 0; i < 4; i++) {
             gameManager4x4.markSpace(Figure.ZERO, 3, i);
         }
-        assertEquals(gameManager4x4.getWinnerInfo(), new WinnerInfo(Figure.ZERO, 0, 3, 3, 3));
+        assertEquals(gameManager4x4.getWinnerInfo(), new WinnerInfo(Row.HORIZONTAL, Figure.ZERO, 0, 3, 3, 3));
 
         // Test #3 (5x5)
         for (int i = 0; i < 5; i++) {
             gameManager5x5.markSpace(Figure.CROSS, 4, i);
         }
-        assertEquals(gameManager5x5.getWinnerInfo(), new WinnerInfo(Figure.CROSS, 0, 4, 4, 4));
+        assertEquals(gameManager5x5.getWinnerInfo(), new WinnerInfo(Row.HORIZONTAL, Figure.CROSS, 0, 4, 4, 4));
     }
 
     @Test
@@ -92,19 +95,19 @@ public class GameManagerTest {
         for (int i = 0; i < 3; i++) {
             gameManager3x3.markSpace(Figure.CROSS, i, 0);
         }
-        assertEquals(gameManager3x3.getWinnerInfo(), new WinnerInfo(Figure.CROSS, 0, 0, 0, 2));
+        assertEquals(gameManager3x3.getWinnerInfo(), new WinnerInfo(Row.VERTICAL, Figure.CROSS, 0, 0, 0, 2));
 
         // Test #2 (4x4)
         for (int i = 0; i < 4; i++) {
             gameManager4x4.markSpace(Figure.ZERO, i, 2);
         }
-        assertEquals(gameManager4x4.getWinnerInfo(), new WinnerInfo(Figure.ZERO, 2, 0, 2, 3));
+        assertEquals(gameManager4x4.getWinnerInfo(), new WinnerInfo(Row.VERTICAL, Figure.ZERO, 2, 0, 2, 3));
 
         // Test #3 (5x5)
         for (int i = 0; i < 5; i++) {
             gameManager5x5.markSpace(Figure.CROSS, i, 4);
         }
-        assertEquals(gameManager5x5.getWinnerInfo(), new WinnerInfo(Figure.CROSS, 4, 0, 4, 4));
+        assertEquals(gameManager5x5.getWinnerInfo(), new WinnerInfo(Row.VERTICAL, Figure.CROSS, 4, 0, 4, 4));
     }
 
     @Test
@@ -113,19 +116,19 @@ public class GameManagerTest {
         for (int i = 0; i < 3; i++) {
             gameManager3x3.markSpace(Figure.CROSS, i, i);
         }
-        assertEquals(gameManager3x3.getWinnerInfo(), new WinnerInfo(Figure.CROSS, 0, 0, 2, 2));
+        assertEquals(gameManager3x3.getWinnerInfo(), new WinnerInfo(Row.DOWNWARDS_DIAGONAL, Figure.CROSS, 0, 0, 2, 2));
 
         // Test #2 (4x4)
         for (int i = 0; i < 4; i++) {
             gameManager4x4.markSpace(Figure.ZERO, i, i);
         }
-        assertEquals(gameManager4x4.getWinnerInfo(), new WinnerInfo(Figure.ZERO, 0, 0, 3, 3));
+        assertEquals(gameManager4x4.getWinnerInfo(), new WinnerInfo(Row.DOWNWARDS_DIAGONAL, Figure.ZERO, 0, 0, 3, 3));
 
         // Test #3 (5x5)
         for (int i = 0; i < 5; i++) {
             gameManager5x5.markSpace(Figure.CROSS, i, i);
         }
-        assertEquals(gameManager5x5.getWinnerInfo(), new WinnerInfo(Figure.CROSS, 0, 0, 4, 4));
+        assertEquals(gameManager5x5.getWinnerInfo(), new WinnerInfo(Row.DOWNWARDS_DIAGONAL, Figure.CROSS, 0, 0, 4, 4));
     }
 
     @Test
@@ -134,19 +137,19 @@ public class GameManagerTest {
         for (int i = 0; i < 3; i++) {
             gameManager3x3.markSpace(Figure.CROSS, 2 - i, i);
         }
-        assertEquals(gameManager3x3.getWinnerInfo(), new WinnerInfo(Figure.CROSS, 0, 2, 2, 0));
+        assertEquals(gameManager3x3.getWinnerInfo(), new WinnerInfo(Row.UPWARDS_DIAGONAL, Figure.CROSS, 0, 2, 2, 0));
 
         // Test #2 (4x4)
         for (int i = 0; i < 4; i++) {
             gameManager4x4.markSpace(Figure.ZERO, 3 - i, i);
         }
-        assertEquals(gameManager4x4.getWinnerInfo(), new WinnerInfo(Figure.ZERO, 0, 3, 3, 0));
+        assertEquals(gameManager4x4.getWinnerInfo(), new WinnerInfo(Row.UPWARDS_DIAGONAL, Figure.ZERO, 0, 3, 3, 0));
 
         // Test #3 (5x5)
         for (int i = 0; i < 5; i++) {
             gameManager5x5.markSpace(Figure.CROSS, 4 - i, i);
         }
-        assertEquals(gameManager5x5.getWinnerInfo(), new WinnerInfo(Figure.CROSS, 0, 4, 4, 0));
+        assertEquals(gameManager5x5.getWinnerInfo(), new WinnerInfo(Row.UPWARDS_DIAGONAL, Figure.CROSS, 0, 4, 4, 0));
     }
 
     @Test

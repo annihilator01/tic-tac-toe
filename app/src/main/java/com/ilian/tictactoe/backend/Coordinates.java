@@ -1,4 +1,4 @@
-package com.tictactoe.backend;
+package com.ilian.tictactoe.backend;
 
 public class Coordinates {
     private int x;
