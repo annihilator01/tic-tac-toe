@@ -3,4 +3,5 @@
     <string name="play_button_name">Play</string>
     <string name="turn_name">Turn</string>
     <string name="win_name">Wins!</string>
+    <string name="draw_naem">Draw!</string>
 </resources>

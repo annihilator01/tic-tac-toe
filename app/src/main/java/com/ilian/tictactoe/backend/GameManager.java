@@ -58,6 +58,18 @@ public class GameManager {
         return grid[i][j];
     }
 
+    public boolean isDraw() {
+        for (int i = 0; i < gridSize; i++) {
+            for (int j = 0; j < gridSize; j++) {
+                if (grid[i][j] == null) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     public WinnerInfo getWinnerInfo() {
         ArrayList<Figure> sequence = new ArrayList<>();
 

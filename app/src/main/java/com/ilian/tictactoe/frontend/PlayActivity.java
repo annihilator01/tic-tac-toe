@@ -86,8 +86,14 @@ public class PlayActivity extends AppCompatActivity {
         startAnimation(field);
 
         // drawing win-line
+        TextView infoTextView = findViewById(R.id.infoTextView);
+        ImageView nextTurnImage = findViewById(R.id.turnImage);
         WinnerInfo winnerInfo = gameManager.getWinnerInfo();
-        if (winnerInfo != null) {
+        if (gameManager.isDraw()) {
+            isGameOver = true;
+            nextTurnImage.setImageResource(0);
+            infoTextView.setText(R.string.draw_naem);
+        } else if (winnerInfo != null) {
             isGameOver = true;
 
             int[] leftFieldLocation = new int[2];
@@ -112,11 +118,8 @@ public class PlayActivity extends AppCompatActivity {
             int endY = rightFieldLocation[1] + field.getHeight() - winnerInfo.getRow().getOffsetY(field.getHeight());
 
             pathView.init(this, getResources().getColor(winnerInfo.getFigure().getColorID()), startX, startY, endX, endY);
-
-            TextView infoTextView = findViewById(R.id.infoTextView);
             infoTextView.setText(R.string.win_name);
         } else {
-            ImageView nextTurnImage = findViewById(R.id.turnImage);
             nextTurnImage.setImageResource(gameManager.getTurn().getDrawableID());
         }
     }

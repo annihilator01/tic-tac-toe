@@ -228,7 +228,7 @@
             android:id="@+id/infoTextView"
             android:layout_width="155dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.85"
+            android:layout_weight="0.8"
             android:gravity="center_vertical"
             android:text="@string/turn_name"
             android:textColor="@color/turnColor"
