@@ -72,10 +72,12 @@ public class GameManager {
 
     public WinnerInfo getWinnerInfo() {
         ArrayList<Figure> sequence = new ArrayList<>();
+        boolean isDraw = true;
 
         // horizontal checks
         for (int i = 0; i < gridSize; i++) {
             for (int j = 0; j < gridSize; j++) {
+
                 sequence.add(grid[i][j]);
             }
 
@@ -127,10 +129,6 @@ public class GameManager {
 
     private boolean isWinnerSequence(ArrayList<Figure> sequence) {
         Figure checkElement = sequence.get(0);
-
-        if (checkElement == null) {
-            return false;
-        }
 
         for (Figure element : sequence) {
             if (element == null || element != checkElement) {

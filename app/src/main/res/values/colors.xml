@@ -4,4 +4,7 @@
     <color name="zeroColor">#f2ebd3</color>
     <color name="crossColor">#545454</color>
     <color name="turnColor">#8A000000</color>
+
+    <color name="testSel">#FF0000</color>
+    <color name="testNot">#0000FF</color>
 </resources>

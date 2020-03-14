@@ -25,6 +25,11 @@ public class InterfaceManager {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void hideSystemUI(AppCompatActivity activity) {
         View decorView = activity.getWindow().getDecorView();
+        hideSystemUI(decorView);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public static void hideSystemUI(View decorView) {
         decorView.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                         // Set the content to appear under the system bars so that the

@@ -4,7 +4,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.app.KeyguardManager;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -18,8 +17,10 @@ import com.ilian.tictactoe.R;
 import com.ilian.tictactoe.backend.guiconnectors.Figure;
 import com.ilian.tictactoe.backend.GameManager;
 import com.ilian.tictactoe.backend.WinnerInfo;
+import com.ilian.tictactoe.frontend.customviews.PathView;
 
 public class PlayActivity extends AppCompatActivity {
+    private ConstraintLayout backgroundLayout;
     private GameManager gameManager;
     private int[][] posToID;
     private boolean isGameOver;
@@ -30,9 +31,9 @@ public class PlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.play_activity);
 
-        InterfaceManager.hideStatusAndActionBar(this);
         InterfaceManager.hideSystemUI(this);
 
+        backgroundLayout = findViewById(R.id.play_background_layout);
         gameManager = new GameManager();
         setFieldsActionsOnClick();
     }
@@ -89,11 +90,7 @@ public class PlayActivity extends AppCompatActivity {
         TextView infoTextView = findViewById(R.id.infoTextView);
         ImageView nextTurnImage = findViewById(R.id.turnImage);
         WinnerInfo winnerInfo = gameManager.getWinnerInfo();
-        if (gameManager.isDraw()) {
-            isGameOver = true;
-            nextTurnImage.setImageResource(0);
-            infoTextView.setText(R.string.draw_naem);
-        } else if (winnerInfo != null) {
+        if (winnerInfo != null) {
             isGameOver = true;
 
             int[] leftFieldLocation = new int[2];
@@ -109,7 +106,7 @@ public class PlayActivity extends AppCompatActivity {
             rightField.getLocationOnScreen(rightFieldLocation);
 
             PathView pathView = new PathView(this);
-            ((ConstraintLayout) findViewById(R.id.main)).addView(pathView);
+            backgroundLayout.addView(pathView);
 
             int startX = leftFieldLocation[0] + winnerInfo.getRow().getOffsetX(field.getWidth());
             int startY = leftFieldLocation[1] + winnerInfo.getRow().getOffsetY(field.getHeight());
@@ -119,6 +116,10 @@ public class PlayActivity extends AppCompatActivity {
 
             pathView.init(this, getResources().getColor(winnerInfo.getFigure().getColorID()), startX, startY, endX, endY);
             infoTextView.setText(R.string.win_name);
+        } else if (gameManager.isDraw()) {
+            isGameOver = true;
+            nextTurnImage.setImageResource(0);
+            infoTextView.setText(R.string.draw_name);
         } else {
             nextTurnImage.setImageResource(gameManager.getTurn().getDrawableID());
         }
@@ -145,7 +146,6 @@ public class PlayActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        InterfaceManager.hideStatusAndActionBar(this);
         InterfaceManager.hideSystemUI(this);
     }
 

@@ -1,9 +1,8 @@
-package com.ilian.tictactoe.frontend;
+package com.ilian.tictactoe.frontend.customviews;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
@@ -14,29 +13,26 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PathView extends View
-{
+import com.ilian.tictactoe.frontend.InterfaceManager;
+
+public class PathView extends View {
     Path path;
     Paint paint;
     float length;
 
-    public PathView(Context context)
-    {
+    public PathView(Context context) {
         super(context);
     }
 
-    public PathView(Context context, AttributeSet attrs)
-    {
+    public PathView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public PathView(Context context, AttributeSet attrs, int defStyleAttr)
-    {
+    public PathView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public void init(AppCompatActivity activity, int color, int startX, int startY, int endX, int endY)
-    {
+    public void init(AppCompatActivity activity, int color, int startX, int startY, int endX, int endY) {
         paint = new Paint();
         paint.setColor(color);
         paint.setStrokeWidth(InterfaceManager.getPixels(activity, 10));
@@ -57,21 +53,18 @@ public class PathView extends View
         animator.start();
     }
 
-    public void setPhase(float phase)
-    {
+    public void setPhase(float phase) {
         paint.setPathEffect(createPathEffect(length, phase));
         invalidate();
     }
 
-    private static PathEffect createPathEffect(float pathLength, float phase)
-    {
+    private static PathEffect createPathEffect(float pathLength, float phase) {
         return new DashPathEffect(new float[] {pathLength, pathLength},
                 Math.max(phase * pathLength, (float) 0.0));
     }
 
     @Override
-    public void onDraw(Canvas c)
-    {
+    public void onDraw(Canvas c) {
         super.onDraw(c);
         c.drawPath(path, paint);
     }
