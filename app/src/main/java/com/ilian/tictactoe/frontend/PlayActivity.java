@@ -1,9 +1,5 @@
 package com.ilian.tictactoe.frontend;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.AnimatedVectorDrawable;
@@ -13,15 +9,18 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.ilian.tictactoe.R;
-import com.ilian.tictactoe.backend.guiconnectors.Figure;
 import com.ilian.tictactoe.backend.GameManager;
 import com.ilian.tictactoe.backend.WinnerInfo;
+import com.ilian.tictactoe.backend.guiconnectors.Figure;
 import com.ilian.tictactoe.frontend.customviews.PathView;
 
 import java.util.HashMap;
