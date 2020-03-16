@@ -2,6 +2,9 @@ package com.ilian.tictactoe.backend.guiconnectors;
 
 import com.ilian.tictactoe.R;
 
+/**
+ * Play figure.
+ */
 public enum Figure {
     ZERO (R.drawable.zero, R.color.zeroColor),
     CROSS (R.drawable.cross, R.color.crossColor);
@@ -10,9 +13,14 @@ public enum Figure {
     private int colorID;
     private static Figure[] vals = values();
 
-    Figure(int drawableID, int color) {
+    /**
+     * Constructor with drawable image id and color id for figure.
+     * @param drawableID - id of figure drawable image
+     * @param colorID - id of figure color
+     */
+    Figure(int drawableID, int colorID) {
         this.drawableID = drawableID;
-        this.colorID = color;
+        this.colorID = colorID;
     }
 
     public int getDrawableID() {

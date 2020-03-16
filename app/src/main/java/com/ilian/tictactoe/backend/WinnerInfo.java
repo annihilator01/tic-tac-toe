@@ -3,12 +3,25 @@ package com.ilian.tictactoe.backend;
 import com.ilian.tictactoe.backend.guiconnectors.Figure;
 import com.ilian.tictactoe.backend.guiconnectors.Row;
 
+/**
+ * Winner information.
+ */
 public class WinnerInfo {
     private Row row;
     private Figure figure;
     private Coordinates leftFieldPos;
     private Coordinates rightFieldPos;
 
+
+    /**
+     * Constructor with row, figure and position of most-left and most-right figure in the winning sequence
+     * @param row - type of figure combination
+     * @param figure - winning figure
+     * @param leftX - x coordinate of most-left figure in the winning sequence
+     * @param leftY - y coordinate of most-left figure in the winning sequence
+     * @param rightX - x coordinate of most-right figure in the winning sequence
+     * @param rightY - y coordinate of most-right figure in the winning sequence
+     */
     WinnerInfo(Row row, Figure figure, int leftX, int leftY, int rightX, int rightY) {
         this.row = row;
         this.figure = figure;

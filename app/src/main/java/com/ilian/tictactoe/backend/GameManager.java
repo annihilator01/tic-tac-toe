@@ -5,6 +5,9 @@ import com.ilian.tictactoe.backend.guiconnectors.Row;
 
 import java.util.ArrayList;
 
+/**
+ * Logic manager of the game.
+ */
 public class GameManager {
     public static final int GRID_MIN_SIZE = 3;
     public static final int GRID_MAX_SIZE = 100;
@@ -13,10 +16,17 @@ public class GameManager {
     private Figure turn;
     private Figure[][] grid;
 
+    /**
+    * Empty constructor.
+    * */
     public GameManager() {
         this(3);
     }
 
+    /**
+     * Constructor with gridSize parameter.
+     * @param gridSize - size of play grid
+     * */
     public GameManager(int gridSize) {
         if (gridSize < GRID_MIN_SIZE || gridSize > GRID_MAX_SIZE) {
             gridSize = GRID_MIN_SIZE;
@@ -27,6 +37,13 @@ public class GameManager {
         this.grid = new Figure[gridSize][gridSize];
     }
 
+    /**
+     * Put specified figure at the specified position.
+     * @param figure - figure
+     * @param i - number of line
+     * @param j - number of column
+     * @return boolean - if space was marked successfully returns true else false
+     */
     public boolean markSpace(Figure figure, int i, int j) {
         if (i < 0 || j < 0 || j > gridSize || i > gridSize) {
             throw new IndexOutOfBoundsException("i: " + i + "; j = " + j);
@@ -42,14 +59,28 @@ public class GameManager {
         return true;
     }
 
+    /**
+     * Get the grid size.
+     * @return gridSize - size of play grid
+     */
     public int getGridSize() {
         return gridSize;
     }
 
+    /**
+     * Get figure that is on the turn now.
+     * @return turn - figure on the turn
+     */
     public Figure getTurn() {
         return turn;
     }
 
+    /**
+     * Get figure at the specified position on the play grid.
+     * @param i - number of line
+     * @param j - number of column
+     * @return Figure - figure at the specified position
+     */
     public Figure getFigure(int i, int j) {
         if (i < 0 || j < 0 || j > gridSize || i > gridSize) {
             throw new IndexOutOfBoundsException("i: " + i + "; j = " + j);
@@ -70,6 +101,10 @@ public class GameManager {
         return true;
     }
 
+    /**
+     * Get winner information if winner exist.
+     * @return WinnerInfo - winner information or null if winner doesn't exist yet
+     */
     public WinnerInfo getWinnerInfo() {
         ArrayList<Figure> sequence = new ArrayList<>();
         boolean isDraw = true;
@@ -127,6 +162,11 @@ public class GameManager {
         return null;
     }
 
+    /**
+     * Check if sequence is winner sequence
+     * @param sequence - sequence consisted of figures
+     * @return boolean - true if sequence is winner sequence else false
+     */
     private boolean isWinnerSequence(ArrayList<Figure> sequence) {
         Figure checkElement = sequence.get(0);
 

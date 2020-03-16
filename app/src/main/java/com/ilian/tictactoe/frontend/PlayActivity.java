@@ -27,6 +27,9 @@ import com.ilian.tictactoe.frontend.customviews.PathView;
 import java.util.HashMap;
 import java.util.Objects;
 
+/**
+ * Play screen activity.
+ */
 public class PlayActivity extends AppCompatActivity {
     private ConstraintLayout backgroundLayout;
     private GameManager gameManager;
@@ -35,6 +38,10 @@ public class PlayActivity extends AppCompatActivity {
     private boolean isGameOver;
     private LinearLayout gridLayout;
 
+    /**
+     * Hide all system UI and locate dynamically created elements on the activity on create.
+     * @param savedInstanceState
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +58,9 @@ public class PlayActivity extends AppCompatActivity {
         setFieldsActionsOnClick();
     }
 
+    /**
+     * Dynamically create grid with size given from the start activity.
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void setGrid() {
         gridImageView = new ImageView[gameManager.getGridSize()][gameManager.getGridSize()];
@@ -77,6 +87,10 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Get new horizontal linear layout for line of figure on the play grid.
+     * @return horizontalLL - horizontal linear layout
+     */
     private LinearLayout getNewHorizontalLinearLayout() {
         LinearLayout horizontalLL = new LinearLayout(this);
         horizontalLL.setOrientation(LinearLayout.HORIZONTAL);
@@ -88,6 +102,10 @@ public class PlayActivity extends AppCompatActivity {
         return horizontalLL;
     }
 
+    /**
+     * Get new play field.
+     * @return field - image view
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     private ImageView getNewField() {
         ImageView field = new ImageView(this);
@@ -99,6 +117,12 @@ public class PlayActivity extends AppCompatActivity {
         return field;
     }
 
+    /**
+     * Get new grid side.
+     * @param width - width of grid side
+     * @param height - heigth of grid side
+     * @return gridSide - view that compatible either with horizontal ll or vertical ll
+     */
     @SuppressLint("ResourceAsColor")
     private View getNewGridSide(int width, int height) {
         View gridSide = new View(this);
@@ -111,6 +135,9 @@ public class PlayActivity extends AppCompatActivity {
         return gridSide;
     }
 
+    /**
+     * Set action on click for all fields.
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void setFieldsActionsOnClick() {
         for (ImageView[] fields : gridImageView) {
@@ -121,6 +148,10 @@ public class PlayActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Set action on click for specified field.
+     * @param field - image view
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void setFieldActionOnClick(ImageView field) {
         field.setOnClickListener(v -> gameEventsHandler(field));
@@ -145,7 +176,6 @@ public class PlayActivity extends AppCompatActivity {
 
         // drawing win-line
         WinnerInfo winnerInfo = gameManager.getWinnerInfo();
-        Button restartButton = findViewById(R.id.restartButton);
         if (winnerInfo != null) {
             isGameOver = true;
 
@@ -183,6 +213,10 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Set info without image view.
+     * @param textInfo - id of string info
+     */
     @SuppressLint("ResourceType")
     private void setInfo(int textInfo) {
         ImageView imageView = findViewById(R.id.imageInfo);
@@ -193,6 +227,11 @@ public class PlayActivity extends AppCompatActivity {
         textView.setText(textInfo);
     }
 
+    /**
+     * Set info with image view.
+     * @param drawableID - id of drawable for image view
+     * @param textInfo - id of string info
+     */
     @SuppressLint("ResourceType")
     private void setInfo(int drawableID, int textInfo) {
         ImageView imageView = findViewById(R.id.imageInfo);
@@ -205,6 +244,10 @@ public class PlayActivity extends AppCompatActivity {
         textView.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * Stat figure animation.
+     * @param imageView - figure field to be animated
+     */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void startAnimation(ImageView imageView) {
         Drawable drawable = imageView.getDrawable();
@@ -214,12 +257,19 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Move to start activity on restart button click.
+     * @param v
+     */
     public void onRestartButtonClick(View v) {
         Intent intent = new Intent(this, StartActivity.class);
         intent.putExtra("GridSize", gameManager.getGridSize());
         startActivity(intent);
     }
 
+    /**
+     * Hide all system UI on resume.
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onResume() {
@@ -227,6 +277,9 @@ public class PlayActivity extends AppCompatActivity {
         InterfaceManager.hideSystemUI(this);
     }
 
+    /**
+     * Deactivate actions when back button pressed
+     */
     @Override
     public void onBackPressed() {}
 }

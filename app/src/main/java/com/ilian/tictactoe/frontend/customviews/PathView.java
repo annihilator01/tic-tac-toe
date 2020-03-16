@@ -13,8 +13,9 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ilian.tictactoe.frontend.InterfaceManager;
-
+/**
+ * Win-line.
+ */
 public class PathView extends View {
     Path path;
     Paint paint;
@@ -32,6 +33,16 @@ public class PathView extends View {
         super(context, attrs, defStyleAttr);
     }
 
+    /**
+     * Start animation of win-line.
+     * @param activity - activity where to start.
+     * @param color - color id of win-line
+     * @param startX - x location of most-left figure in winning sequence
+     * @param startY - y location of most-left figure in winning sequence
+     * @param endX - x location of most-right figure in winning sequence
+     * @param endY - y location of most-right figure in winning sequence
+     * @param strokeWidth - stroke width of win-line.
+     */
     public void init(AppCompatActivity activity, int color, int startX, int startY, int endX, int endY, int strokeWidth) {
         paint = new Paint();
         paint.setColor(color);
@@ -58,11 +69,21 @@ public class PathView extends View {
         invalidate();
     }
 
+    /**
+     * Creating path effect.
+     * @param pathLength
+     * @param phase
+     * @return PathEffect
+     */
     private static PathEffect createPathEffect(float pathLength, float phase) {
         return new DashPathEffect(new float[] {pathLength, pathLength},
                 Math.max(phase * pathLength, (float) 0.0));
     }
 
+    /**
+     * Draw path on draw.
+     * @param c
+     */
     @Override
     public void onDraw(Canvas c) {
         super.onDraw(c);

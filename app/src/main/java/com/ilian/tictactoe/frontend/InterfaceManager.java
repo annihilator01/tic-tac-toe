@@ -7,7 +7,14 @@ import android.view.View;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * UI game manager.
+ */
 public class InterfaceManager {
+    /**
+     * Hide status and actions bar.
+     * @param activity - activity where to hide
+     */
     public static void hideStatusAndActionBar(AppCompatActivity activity) {
         View decorView = activity.getWindow().getDecorView();
         // Hide the status bar
@@ -22,12 +29,20 @@ public class InterfaceManager {
         }
     }
 
+    /**
+     * Hide all system UI.
+     * @param activity - activity where to hide
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void hideSystemUI(AppCompatActivity activity) {
         View decorView = activity.getWindow().getDecorView();
         hideSystemUI(decorView);
     }
 
+    /**
+     * Hide all system UI.
+     * @param decorView - view where to hide
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void hideSystemUI(View decorView) {
         decorView.setSystemUiVisibility(
