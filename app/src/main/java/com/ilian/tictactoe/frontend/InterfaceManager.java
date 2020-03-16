@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class InterfaceManager {
     /**
      * Hide status and actions bar.
+     *
      * @param activity - activity where to hide
      */
     public static void hideStatusAndActionBar(AppCompatActivity activity) {
@@ -31,6 +32,7 @@ public class InterfaceManager {
 
     /**
      * Hide all system UI.
+     *
      * @param activity - activity where to hide
      */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -41,6 +43,7 @@ public class InterfaceManager {
 
     /**
      * Hide all system UI.
+     *
      * @param decorView - view where to hide
      */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)

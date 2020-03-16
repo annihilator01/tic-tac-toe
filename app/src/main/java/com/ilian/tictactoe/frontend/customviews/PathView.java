@@ -17,30 +17,58 @@ import androidx.appcompat.app.AppCompatActivity;
  * Win-line.
  */
 public class PathView extends View {
+    /**
+     * The Path.
+     */
     Path path;
+    /**
+     * The Paint.
+     */
     Paint paint;
+    /**
+     * The Length.
+     */
     float length;
 
+    /**
+     * Instantiates a new Path view.
+     *
+     * @param context the context
+     */
     public PathView(Context context) {
         super(context);
     }
 
+    /**
+     * Instantiates a new Path view.
+     *
+     * @param context the context
+     * @param attrs   the attrs
+     */
     public PathView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
+    /**
+     * Instantiates a new Path view.
+     *
+     * @param context      the context
+     * @param attrs        the attrs
+     * @param defStyleAttr the def style attr
+     */
     public PathView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     /**
      * Start animation of win-line.
-     * @param activity - activity where to start.
-     * @param color - color id of win-line
-     * @param startX - x location of most-left figure in winning sequence
-     * @param startY - y location of most-left figure in winning sequence
-     * @param endX - x location of most-right figure in winning sequence
-     * @param endY - y location of most-right figure in winning sequence
+     *
+     * @param activity    - activity where to start.
+     * @param color       - color id of win-line
+     * @param startX      - x location of most-left figure in winning sequence
+     * @param startY      - y location of most-left figure in winning sequence
+     * @param endX        - x location of most-right figure in winning sequence
+     * @param endY        - y location of most-right figure in winning sequence
      * @param strokeWidth - stroke width of win-line.
      */
     public void init(AppCompatActivity activity, int color, int startX, int startY, int endX, int endY, int strokeWidth) {
@@ -64,6 +92,11 @@ public class PathView extends View {
         animator.start();
     }
 
+    /**
+     * Sets phase.
+     *
+     * @param phase the phase
+     */
     public void setPhase(float phase) {
         paint.setPathEffect(createPathEffect(length, phase));
         invalidate();
