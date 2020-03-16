@@ -1,4 +1,4 @@
-<animated-vector
+<animated-vector xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt">
     <aapt:attr name="android:drawable">
@@ -12,13 +12,13 @@
                 <path
                     android:name="left"
                     android:pathData="M 16 16 L 112 112"
-                    android:strokeColor="#545454"
-                    android:strokeWidth="10"/>
+                    android:strokeColor="@color/crossColor"
+                    android:strokeWidth="@string/figureStrokeWidth"/>
                 <path
                     android:name="right"
                     android:pathData="M 112 16 L 16 112"
                     android:strokeColor="@color/crossColor"
-                    android:strokeWidth="10"/>
+                    android:strokeWidth="@string/figureStrokeWidth"/>
             </group>
         </vector>
     </aapt:attr>
@@ -30,7 +30,8 @@
                 android:valueFrom="0"
                 android:valueTo="1"
                 android:valueType="floatType"
-                android:interpolator="@android:interpolator/fast_out_slow_in"/>
+                android:interpolator="@android:interpolator/fast_out_slow_in"
+                tools:targetApi="lollipop" />
         </aapt:attr>
     </target>
     <target android:name="right">

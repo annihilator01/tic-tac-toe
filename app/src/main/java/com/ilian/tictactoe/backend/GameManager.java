@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class GameManager {
     public static final int GRID_MIN_SIZE = 3;
-    public static final int GRID_MAX_SIZE = 5;
+    public static final int GRID_MAX_SIZE = 100;
 
     private int gridSize;
     private Figure turn;
@@ -19,7 +19,7 @@ public class GameManager {
 
     public GameManager(int gridSize) {
         if (gridSize < GRID_MIN_SIZE || gridSize > GRID_MAX_SIZE) {
-            gridSize = 3;
+            gridSize = GRID_MIN_SIZE;
         }
 
         this.gridSize = gridSize;

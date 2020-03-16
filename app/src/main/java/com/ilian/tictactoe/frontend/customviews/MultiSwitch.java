@@ -1,38 +1,41 @@
 package com.ilian.tictactoe.frontend.customviews;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
-import android.view.View;
 
 import com.ilian.tictactoe.R;
 
-public class MultiSwitch extends View {
+public class MultiSwitch extends androidx.appcompat.widget.AppCompatTextView {
     private static MultiSwitch selected = null;
 
+    @SuppressLint("ResourceType")
     public MultiSwitch(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        setBackgroundResource(R.color.testNot);
+        setBackgroundResource(Color.TRANSPARENT);
         setOnClickListener((l) -> select(this));
-
-        if (selected == null) {
-            select(this);
-        }
+        initialSelect(this);
     }
 
-    private static void test(MultiSwitch multiSwitch) {
-        multiSwitch.setBackgroundColor(Color.BLACK);
+    public static void initialSelect(MultiSwitch multiSwitch) {
+        select(multiSwitch);
     }
 
+    @SuppressLint("ResourceType")
     private static void select(MultiSwitch multiSwitch) {
         if (multiSwitch != selected) {
             if (selected != null) {
-                selected.setBackgroundResource(R.color.testNot);
+                selected.setBackgroundResource(Color.TRANSPARENT);
             }
 
             selected = multiSwitch;
-            multiSwitch.setBackgroundResource(R.color.testSel);
+            multiSwitch.setBackgroundResource(R.drawable.selected_wrapper);
         }
+    }
+
+    public static String getSelectedInfo() {
+        return selected.getContentDescription().toString();
     }
 }

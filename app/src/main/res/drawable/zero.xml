@@ -1,4 +1,4 @@
-<animated-vector
+<animated-vector xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt">
     <aapt:attr name="android:drawable">
@@ -12,7 +12,7 @@
                 android:name="path"
                 android:pathData="M 64 16 C 51.274 16 39.057 21.061 30.059 30.059 C 21.061 39.057 16 51.274 16 64 C 16 76.726 21.061 88.943 30.059 97.941 C 39.057 106.939 51.274 112 64 112 C 76.726 112 88.943 106.939 97.941 97.941 C 106.939 88.943 112 76.726 112 64 C 112 51.274 106.939 39.057 97.941 30.059 C 88.943 21.061 76.726 16 64 16"
                 android:strokeColor="@color/zeroColor"
-                android:strokeWidth="10"/>
+                android:strokeWidth="@string/figureStrokeWidth"/>
         </vector>
     </aapt:attr>
     <target android:name="path">
@@ -23,7 +23,8 @@
                 android:valueFrom="0"
                 android:valueTo="1"
                 android:valueType="floatType"
-                android:interpolator="@android:interpolator/fast_out_slow_in"/>
+                android:interpolator="@android:interpolator/fast_out_slow_in"
+                tools:ignore="NewApi" />
         </aapt:attr>
     </target>
 </animated-vector>

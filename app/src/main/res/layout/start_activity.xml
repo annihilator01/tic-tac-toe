@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/start_background_layout"
+    android:id="@+id/startBackgroundLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mainBackgroundColor"
@@ -10,66 +10,101 @@
 
     <Button
         android:id="@+id/playButton"
-        android:layout_width="200dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="372dp"
-        android:layout_marginBottom="426dp"
-        android:background="#C87171"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/button_wrapper"
         android:onClick="onPlayButtonClick"
-        android:text="@string/play_button_name"
+        android:padding="15dp"
+        android:text="@string/playButtonLabel"
+        android:textColor="@color/mainBackgroundColor"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="160dp"
-        android:layout_marginBottom="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/playButton"
+        android:layout_width="230dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/logo"
-        tools:ignore="VectorDrawableCompat" />
+        tools:ignore="ContentDescription,VectorDrawableCompat" />
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="424dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/border_wrapper"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/playButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playButton"
         tools:ignore="MissingConstraints">
 
         <com.ilian.tictactoe.frontend.customviews.MultiSwitch
-            android:id="@+id/multiSwitch"
+            android:id="@+id/multiSwitch3x3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@drawable/border_wrapper"
+            android:contentDescription="3"
+            android:gravity="center_horizontal"
+            android:text="3x3"
+            android:textAlignment="center"
+            android:textColor="@color/textColorMultiSwitch"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
 
         <com.ilian.tictactoe.frontend.customviews.MultiSwitch
-            android:id="@+id/multiSwitch2"
+            android:id="@+id/multiSwitch4x4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:contentDescription="4"
+            android:gravity="center_horizontal"
+            android:text="4x4"
+            android:textAlignment="center"
+            android:textColor="@color/textColorMultiSwitch"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
 
         <com.ilian.tictactoe.frontend.customviews.MultiSwitch
-            android:id="@+id/multiSwitch3"
+            android:id="@+id/multiSwitch5x5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="#008E0000"
+            android:contentDescription="5"
+            android:gravity="center_horizontal"
+            android:text="5x5"
+            android:textAlignment="center"
+            android:textColor="@color/textColorMultiSwitch"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="cursive"
+        android:text="@string/appName"
+        android:textSize="70sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

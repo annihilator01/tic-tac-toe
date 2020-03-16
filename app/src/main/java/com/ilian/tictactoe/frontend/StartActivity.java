@@ -4,18 +4,13 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.ilian.tictactoe.R;
+import com.ilian.tictactoe.frontend.customviews.MultiSwitch;
 
 public class StartActivity extends AppCompatActivity {
     ConstraintLayout backgroundLayout;
@@ -27,7 +22,7 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.start_activity);
         InterfaceManager.hideSystemUI(this);
 
-        backgroundLayout = findViewById(R.id.start_background_layout);
+        backgroundLayout = findViewById(R.id.startBackgroundLayout);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -35,6 +30,7 @@ public class StartActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         InterfaceManager.hideSystemUI(this);
+        MultiSwitch.initialSelect(findViewById(R.id.multiSwitch3x3));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -42,17 +38,11 @@ public class StartActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         InterfaceManager.hideSystemUI(this);
-
-        if(!hasFocus) {
-            //do anything you want here
-            Toast.makeText(this,"Activity changed",Toast.LENGTH_SHORT).show();
-        }
     }
 
     public void onPlayButtonClick(View v) {
-        Button playButton = findViewById(R.id.playButton);
-
         Intent intent = new Intent(this, PlayActivity.class);
+        intent.putExtra("GridSize", Integer.parseInt(MultiSwitch.getSelectedInfo()));
         startActivity(intent);
     }
 }

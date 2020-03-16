@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="mainBackgroundColor">#14bdac</color>
+    <color name="gridSideColor">#0da192</color>
     <color name="zeroColor">#f2ebd3</color>
     <color name="crossColor">#545454</color>
-    <color name="turnColor">#8A000000</color>
-
-    <color name="testSel">#FF0000</color>
-    <color name="testNot">#0000FF</color>
+    <color name="textColorDark">#8A000000</color>
+    <color name="textColorMultiSwitch">@color/crossColor</color>
+    <color name="selectedColor">@color/zeroColor</color>
+    <color name="buttonColor">#FFFFFF</color>
 </resources>

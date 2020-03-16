@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">Tic Tac Toe</string>
-    <string name="play_button_name">Play</string>
-    <string name="turn_name">Turn</string>
-    <string name="win_name">Wins!</string>
-    <string name="draw_name">Draw!</string>
+    <string name="appName">Tic Tac Toe</string>
+    <string name="playButtonLabel">Play</string>
+    <string name="restartButtonLabel">Restart Game</string>
+    <string name="turnLabel">Turn</string>
+    <string name="winLabel">Wins!</string>
+    <string name="drawLabel">Draw!</string>
+    <string name="figureStrokeWidth">15</string>
 </resources>

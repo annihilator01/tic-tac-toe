@@ -32,10 +32,10 @@ public class PathView extends View {
         super(context, attrs, defStyleAttr);
     }
 
-    public void init(AppCompatActivity activity, int color, int startX, int startY, int endX, int endY) {
+    public void init(AppCompatActivity activity, int color, int startX, int startY, int endX, int endY, int strokeWidth) {
         paint = new Paint();
         paint.setColor(color);
-        paint.setStrokeWidth(InterfaceManager.getPixels(activity, 10));
+        paint.setStrokeWidth(strokeWidth);
         paint.setStyle(Paint.Style.STROKE);
 
         path = new Path();
@@ -49,7 +49,7 @@ public class PathView extends View {
         float[] intervals = new float[]{length, length};
 
         ObjectAnimator animator = ObjectAnimator.ofFloat(PathView.this, "phase", 1.0f, 0.0f);
-        animator.setDuration(2000);
+        animator.setDuration(1500);
         animator.start();
     }
 

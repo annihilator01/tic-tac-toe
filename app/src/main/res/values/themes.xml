@@ -4,8 +4,4 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <style name="Button">
-
-    </style>
-
 </resources>

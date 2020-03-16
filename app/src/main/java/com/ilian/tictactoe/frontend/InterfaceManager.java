@@ -41,9 +41,4 @@ public class InterfaceManager {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
-
-    public static int getPixels(AppCompatActivity activity, float dp) {
-        final float scale = activity.getResources().getDisplayMetrics().density;
-        return (int) (dp * scale + 0.5f);
-    }
 }
