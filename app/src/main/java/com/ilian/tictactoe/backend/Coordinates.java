@@ -9,6 +9,7 @@ public class Coordinates {
 
     /**
      * Constructor with two offsets.
+     *
      * @param x - offset from most-left field
      * @param y - offset from most-top field
      */
@@ -19,6 +20,7 @@ public class Coordinates {
 
     /**
      * Copy constructor.
+     *
      * @param coordinates - figure coordinates
      */
     Coordinates(Coordinates coordinates) {
@@ -26,10 +28,20 @@ public class Coordinates {
         this.y = coordinates.y;
     }
 
+    /**
+     * Gets x.
+     *
+     * @return the x
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * Gets y.
+     *
+     * @return the y
+     */
     public int getY() {
         return y;
     }

@@ -9,11 +9,17 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * The type Game manager test.
+ */
 public class GameManagerTest {
     private GameManager gameManager3x3;
     private GameManager gameManager4x4;
     private GameManager gameManager5x5;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         gameManager3x3 = new GameManager();
@@ -21,6 +27,9 @@ public class GameManagerTest {
         gameManager5x5 = new GameManager(5);
     }
 
+    /**
+     * Tear down.
+     */
     @After
     public void tearDown() {
         gameManager3x3 = null;
@@ -28,6 +37,9 @@ public class GameManagerTest {
         gameManager5x5 = null;
     }
 
+    /**
+     * Test mark space index out of bounds exception.
+     */
     @Test
     public void testMarkSpaceIndexOutOfBoundsException() {
         // Test #1 (3x3)
@@ -46,6 +58,9 @@ public class GameManagerTest {
         });
     }
 
+    /**
+     * Test field value after mark space.
+     */
     @Test
     public void testFieldValueAfterMarkSpace() {
         // Test #1
@@ -60,6 +75,9 @@ public class GameManagerTest {
         assertNull(gameManager3x3.getFigure(2, 2));
     }
 
+    /**
+     * Test mark space return value.
+     */
     @Test
     public void testMarkSpaceReturnValue() {
         assertTrue(gameManager3x3.markSpace(Figure.CROSS, 1, 2));   // Test #1
@@ -68,6 +86,9 @@ public class GameManagerTest {
         assertTrue(gameManager3x3.markSpace(Figure.ZERO,0, 0));     // Test #4
     }
 
+    /**
+     * Test horizontal winner.
+     */
     @Test
     public void testHorizontalWinner() {
         // Test #1 (3x3)
@@ -89,6 +110,9 @@ public class GameManagerTest {
         assertEquals(gameManager5x5.getWinnerInfo(), new WinnerInfo(Row.HORIZONTAL, Figure.CROSS, 0, 4, 4, 4));
     }
 
+    /**
+     * Test vertical winner.
+     */
     @Test
     public void testVerticalWinner() {
         // Test #1 (3x3)
@@ -110,6 +134,9 @@ public class GameManagerTest {
         assertEquals(gameManager5x5.getWinnerInfo(), new WinnerInfo(Row.VERTICAL, Figure.CROSS, 4, 0, 4, 4));
     }
 
+    /**
+     * Test downwards diagonal winner.
+     */
     @Test
     public void testDownwardsDiagonalWinner() {
         // Test #1 (3x3)
@@ -131,6 +158,9 @@ public class GameManagerTest {
         assertEquals(gameManager5x5.getWinnerInfo(), new WinnerInfo(Row.DOWNWARDS_DIAGONAL, Figure.CROSS, 0, 0, 4, 4));
     }
 
+    /**
+     * Test upwards diagonal winner.
+     */
     @Test
     public void testUpwardsDiagonalWinner() {
         // Test #1 (3x3)
@@ -152,6 +182,9 @@ public class GameManagerTest {
         assertEquals(gameManager5x5.getWinnerInfo(), new WinnerInfo(Row.UPWARDS_DIAGONAL, Figure.CROSS, 0, 4, 4, 0));
     }
 
+    /**
+     * Test winner not found.
+     */
     @Test
     public void testWinnerNotFound() {
         // Test (3x3)

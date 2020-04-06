@@ -52,7 +52,8 @@ public class StartActivity extends AppCompatActivity {
 
     /**
      * Move to the play activity on button click and transmit size of play grid.
-     * @param v
+     *
+     * @param v the v
      */
     public void onPlayButtonClick(View v) {
         Intent intent = new Intent(this, PlayActivity.class);

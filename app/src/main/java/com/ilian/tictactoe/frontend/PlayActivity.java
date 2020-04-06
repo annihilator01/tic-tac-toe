@@ -245,6 +245,7 @@ public class PlayActivity extends AppCompatActivity {
 
     /**
      * Stat figure animation.
+     *
      * @param imageView - figure field to be animated
      */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -258,7 +259,8 @@ public class PlayActivity extends AppCompatActivity {
 
     /**
      * Move to start activity on restart button click.
-     * @param v
+     *
+     * @param v the v
      */
     public void onRestartButtonClick(View v) {
         Intent intent = new Intent(this, StartActivity.class);

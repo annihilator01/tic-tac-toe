@@ -6,7 +6,13 @@ import com.ilian.tictactoe.R;
  * Play figure.
  */
 public enum Figure {
+    /**
+     * Zero figure.
+     */
     ZERO (R.drawable.zero, R.color.zeroColor),
+    /**
+     * Cross figure.
+     */
     CROSS (R.drawable.cross, R.color.crossColor);
 
     private int drawableID;
@@ -23,14 +29,29 @@ public enum Figure {
         this.colorID = colorID;
     }
 
+    /**
+     * Gets drawable id.
+     *
+     * @return the drawable id
+     */
     public int getDrawableID() {
         return drawableID;
     }
 
+    /**
+     * Gets color id.
+     *
+     * @return the color id
+     */
     public int getColorID() {
         return colorID;
     }
 
+    /**
+     * Gets next.
+     *
+     * @return the next
+     */
     public Figure getNext()
     {
         return vals[(this.ordinal() + 1) % vals.length];

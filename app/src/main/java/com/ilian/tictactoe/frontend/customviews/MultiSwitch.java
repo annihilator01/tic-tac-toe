@@ -15,8 +15,9 @@ public class MultiSwitch extends androidx.appcompat.widget.AppCompatTextView {
 
     /**
      * Default constructor that make initial selection and bind action to multi switch view on click
-     * @param context
-     * @param attrs
+     *
+     * @param context the context
+     * @param attrs   the attrs
      */
     @SuppressLint("ResourceType")
     public MultiSwitch(Context context, AttributeSet attrs) {
@@ -29,6 +30,7 @@ public class MultiSwitch extends androidx.appcompat.widget.AppCompatTextView {
 
     /**
      * Initially select specified multi switch.
+     *
      * @param multiSwitch - multi switch to be initially selected
      */
     public static void initialSelect(MultiSwitch multiSwitch) {
@@ -53,6 +55,7 @@ public class MultiSwitch extends androidx.appcompat.widget.AppCompatTextView {
 
     /**
      * Get information of selected multi switch.
+     *
      * @return String - information
      */
     public static String getSelectedInfo() {

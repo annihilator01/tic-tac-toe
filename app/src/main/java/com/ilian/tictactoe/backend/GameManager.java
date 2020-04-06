@@ -9,7 +9,13 @@ import java.util.ArrayList;
  * Logic manager of the game.
  */
 public class GameManager {
+    /**
+     * The constant GRID_MIN_SIZE.
+     */
     public static final int GRID_MIN_SIZE = 3;
+    /**
+     * The constant GRID_MAX_SIZE.
+     */
     public static final int GRID_MAX_SIZE = 100;
 
     private int gridSize;
@@ -17,16 +23,17 @@ public class GameManager {
     private Figure[][] grid;
 
     /**
-    * Empty constructor.
-    * */
+     * Empty constructor.
+     */
     public GameManager() {
         this(3);
     }
 
     /**
      * Constructor with gridSize parameter.
+     *
      * @param gridSize - size of play grid
-     * */
+     */
     public GameManager(int gridSize) {
         if (gridSize < GRID_MIN_SIZE || gridSize > GRID_MAX_SIZE) {
             gridSize = GRID_MIN_SIZE;
@@ -39,9 +46,10 @@ public class GameManager {
 
     /**
      * Put specified figure at the specified position.
+     *
      * @param figure - figure
-     * @param i - number of line
-     * @param j - number of column
+     * @param i      - number of line
+     * @param j      - number of column
      * @return boolean - if space was marked successfully returns true else false
      */
     public boolean markSpace(Figure figure, int i, int j) {
@@ -61,6 +69,7 @@ public class GameManager {
 
     /**
      * Get the grid size.
+     *
      * @return gridSize - size of play grid
      */
     public int getGridSize() {
@@ -69,6 +78,7 @@ public class GameManager {
 
     /**
      * Get figure that is on the turn now.
+     *
      * @return turn - figure on the turn
      */
     public Figure getTurn() {
@@ -77,6 +87,7 @@ public class GameManager {
 
     /**
      * Get figure at the specified position on the play grid.
+     *
      * @param i - number of line
      * @param j - number of column
      * @return Figure - figure at the specified position
@@ -89,6 +100,11 @@ public class GameManager {
         return grid[i][j];
     }
 
+    /**
+     * Is draw boolean.
+     *
+     * @return the boolean
+     */
     public boolean isDraw() {
         for (int i = 0; i < gridSize; i++) {
             for (int j = 0; j < gridSize; j++) {
@@ -103,6 +119,7 @@ public class GameManager {
 
     /**
      * Get winner information if winner exist.
+     *
      * @return WinnerInfo - winner information or null if winner doesn't exist yet
      */
     public WinnerInfo getWinnerInfo() {

@@ -15,10 +15,11 @@ public class WinnerInfo {
 
     /**
      * Constructor with row, figure and position of most-left and most-right figure in the winning sequence
-     * @param row - type of figure combination
+     *
+     * @param row    - type of figure combination
      * @param figure - winning figure
-     * @param leftX - x coordinate of most-left figure in the winning sequence
-     * @param leftY - y coordinate of most-left figure in the winning sequence
+     * @param leftX  - x coordinate of most-left figure in the winning sequence
+     * @param leftY  - y coordinate of most-left figure in the winning sequence
      * @param rightX - x coordinate of most-right figure in the winning sequence
      * @param rightY - y coordinate of most-right figure in the winning sequence
      */
@@ -29,18 +30,38 @@ public class WinnerInfo {
         this.rightFieldPos = new Coordinates(rightX, rightY);
     }
 
+    /**
+     * Gets row.
+     *
+     * @return the row
+     */
     public Row getRow() {
         return row;
     }
 
+    /**
+     * Gets figure.
+     *
+     * @return the figure
+     */
     public Figure getFigure() {
         return figure;
     }
 
+    /**
+     * Gets left field pos.
+     *
+     * @return the left field pos
+     */
     public Coordinates getLeftFieldPos() {
         return new Coordinates(leftFieldPos);
     }
 
+    /**
+     * Gets right field pos.
+     *
+     * @return the right field pos
+     */
     public Coordinates getRightFieldPos() {
         return new Coordinates(rightFieldPos);
     }
